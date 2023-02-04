@@ -4,6 +4,6 @@
 
 @layer components {
   .btn {
-    @apply px-4 py-2 rounded-md bg-blue-700 hover:bg-blue-500 text-white hover:font-semibold hover:rounded-xl transition-all duration-300 ease-in;
+    @apply px-4 py-2 rounded-md bg-blue-700 hover:bg-blue-900 text-white hover:font-semibold transition hover:-translate-y-1 duration-300 ease-in-out hover:scale-110;
   }
 }
