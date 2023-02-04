@@ -2,7 +2,14 @@
 
 import { useState } from 'react'
 
-export default function TimeSlot({ timeSlot }: { timeSlot: string }) {
+export interface ISlot {
+  index: number
+  name: string
+}
+
+export default function TimeSlot({ slot }: { slot: ISlot }) {
+  const timeSlot = slot.name
+
   const [selected, setSelected] = useState(false)
 
   const handleClick = () => {
