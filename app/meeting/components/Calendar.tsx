@@ -3,7 +3,6 @@ import { ISlot } from '@/app/meeting/components/TimeSlot';
 import { IMeeting } from '@/app/meeting/IMeeting';
 
 export default function Calendar({ meeting }: { meeting: IMeeting }) {
-  const dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
   const days = generateDays()
 
   return (
