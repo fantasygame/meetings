@@ -8,8 +8,8 @@ export default function Home() {
   return (
     <main className={raleway.className}>
       <h1 className="text-3xl">Hello World</h1>
-      <Link href="/meeting">
-        Miring
+      <Link className='btn' href="/meeting">
+        Meeting
       </Link>
     </main>
   )
