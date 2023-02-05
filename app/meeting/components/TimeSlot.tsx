@@ -15,7 +15,7 @@ export default function TimeSlot({ slot, availabilities }: { slot: ISlot, availa
     if (selected && availability) {
       setSelected(false)
       const res = await fetch(`http://localhost:3000/api/deleteAvailability/${availability.id}`, { method: 'DELETE' })
-      if (res.status !== 200) setSelected(false)
+      if (res.status !== 200) setSelected(true)
     } else {
       setSelected(true)
       const res = await fetch(`http://localhost:3000/api/createAvailability`, {
