@@ -14,10 +14,9 @@ export default function TimeSlot({ slot, availabilities }: { slot: ISlot, availa
   const router = useRouter();
 
   async function handleClick() {
-    if (selected) {
+    if (selected && availability) {
       setSelected(false)
       await fetch(`http://localhost:3000/api/deleteAvailability/${availability.id}`, { method: 'DELETE' })
-
     } else {
       setSelected(true)
       await fetch(`http://localhost:3000/api/createAvailability`, {
