@@ -2,8 +2,7 @@
 
 import { IAvailability } from '@/app/meeting/types/IAvailability'
 import { ISlot } from '@/app/meeting/types/ISlot'
-import { useRouter } from 'next/navigation';
-import { startTransition, useState } from 'react'
+import { useState } from 'react'
 
 export default function TimeSlot({ slot, availabilities }: { slot: ISlot, availabilities: IAvailability[] }) {
   const availability = availabilities.find((availability) => {
@@ -11,7 +10,6 @@ export default function TimeSlot({ slot, availabilities }: { slot: ISlot, availa
   })
 
   const [selected, setSelected] = useState(!!availability)
-  const router = useRouter();
 
   async function handleClick() {
     if (selected && availability) {
@@ -26,9 +24,6 @@ export default function TimeSlot({ slot, availabilities }: { slot: ISlot, availa
       });
       if (res.status !== 200) setSelected(false)
     }
-    startTransition(() => {
-      router.refresh();
-    });
   }
 
   function renderTimeSlotButton(selected: boolean): JSX.Element {
