@@ -13,6 +13,7 @@ datasource db {
 model User {
   id             Int            @id @default(autoincrement())
   name           String
+  discordId      String         @unique @default("None")
   availabilities Availability[]
 }
 
