@@ -1,5 +1,6 @@
-import TimeSlot, { ISlot } from '@/app/meeting/components/TimeSlot'
+import TimeSlot from '@/app/meeting/components/TimeSlot'
 import { IAvailability } from '@/app/meeting/types/IAvailability'
+import { ISlot } from '@/app/meeting/types/ISlot'
 
 export interface IDay {
   name: string

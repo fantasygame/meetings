@@ -1,7 +1,7 @@
 import Day, { IDay } from '@/app/meeting/components/Day';
-import { ISlot } from '@/app/meeting/components/TimeSlot';
 import { IMeeting } from '@/app/meeting/IMeeting';
 import { IAvailability } from '@/app/meeting/types/IAvailability';
+import { ISlot } from '@/app/meeting/types/ISlot';
 
 export default function Calendar({ meeting, availabilities }: { meeting: IMeeting, availabilities: IAvailability[] }) {
   const days = generateDays()

@@ -1,12 +1,8 @@
 'use client'
 
 import { IAvailability } from '@/app/meeting/types/IAvailability'
+import { ISlot } from '@/app/meeting/types/ISlot'
 import { useState } from 'react'
-
-export interface ISlot {
-  index: number
-  name: string
-}
 
 export default function TimeSlot({ slot, availabilities }: { slot: ISlot, availabilities: IAvailability[] }) {
   const [selected, setSelected] = useState(false)
