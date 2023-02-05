@@ -41,7 +41,6 @@ export default function TimeSlot({ slot, availabilities }: { slot: ISlot, availa
 
   return (
     <>
-      isFetching {isFetching ? 'true' : 'false'}
       {renderTimeSlotButton(selected)}
     </>
   )
