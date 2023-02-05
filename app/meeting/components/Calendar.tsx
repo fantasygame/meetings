@@ -1,6 +1,7 @@
-import Day, { IDay } from '@/app/meeting/components/Day';
+import Day from '@/app/meeting/components/Day';
 import { IMeeting } from '@/app/meeting/IMeeting';
 import { IAvailability } from '@/app/meeting/types/IAvailability';
+import { IDay } from '@/app/meeting/types/IDay';
 import { ISlot } from '@/app/meeting/types/ISlot';
 
 export default function Calendar({ meeting, availabilities }: { meeting: IMeeting, availabilities: IAvailability[] }) {
