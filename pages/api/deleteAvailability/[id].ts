@@ -15,7 +15,7 @@ export default async function handler(
         id: +id,
       }
     })
-    res.status(200)
+    res.status(200).json({ id })
   } catch (error) {
     res.status(500).json({ error })
   }
