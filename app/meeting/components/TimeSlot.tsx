@@ -16,13 +16,15 @@ export default function TimeSlot({ slot, availabilities }: { slot: ISlot, availa
   async function handleClick() {
     if (selected && availability) {
       setSelected(false)
-      await fetch(`http://localhost:3000/api/deleteAvailability/${availability.id}`, { method: 'DELETE' })
+      const res = await fetch(`http://localhost:3000/api/deleteAvailability/${availability.id}`, { method: 'DELETE' })
+      if (res.status !== 200) setSelected(false)
     } else {
       setSelected(true)
-      await fetch(`http://localhost:3000/api/createAvailability`, {
+      const res = await fetch(`http://localhost:3000/api/createAvailability`, {
         method: 'POST',
         body: JSON.stringify({ userId: 1, index: slot.index }),
       });
+      if (res.status !== 200) setSelected(false)
     }
     startTransition(() => {
       router.refresh();
