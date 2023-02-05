@@ -1,8 +1,25 @@
 import Calendar from '@/app/meeting/components/Calendar';
 import { IMeeting } from '@/app/meeting/IMeeting';
+import { IAvailability } from '@/app/meeting/types/IAvailability';
 import Link from 'next/link'
 
-export default function MeetingPage() {
+async function getAvailabilities(): Promise<IAvailability[]> {
+  const res = await fetch('http://localhost:3000/api/getAvailabilities');
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+
+  // Recommendation: handle errors
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data');
+  }
+
+  return res.json();
+}
+
+export default async function MeetingPage() {
+
+  const availabilities = await getAvailabilities();
   const meeting: IMeeting = {
     id: 1,
     name: 'Burning Crowns S01E03',
@@ -15,7 +32,7 @@ export default function MeetingPage() {
       <Link className='btn ml-5' href="/">
         Return
       </Link>
-      <Calendar meeting={meeting} />
+      <Calendar meeting={meeting} availabilities={availabilities} />
     </>
   )
 }
