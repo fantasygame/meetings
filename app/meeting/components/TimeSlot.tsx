@@ -10,8 +10,12 @@ export default function TimeSlot({ slot, availabilities }: { slot: ISlot, availa
   })
 
   const [selected, setSelected] = useState(!!availability)
+  const [isFetching, setIsFetching] = useState(false)
 
   async function handleClick() {
+    if (isFetching) return
+
+    setIsFetching(true)
     if (selected && availability) {
       setSelected(false)
       const res = await fetch(`http://localhost:3000/api/deleteAvailability/${availability.id}`, { method: 'DELETE' })
@@ -21,9 +25,10 @@ export default function TimeSlot({ slot, availabilities }: { slot: ISlot, availa
       const res = await fetch(`http://localhost:3000/api/createAvailability`, {
         method: 'POST',
         body: JSON.stringify({ userId: 1, index: slot.index }),
-      });
+      })
       if (res.status !== 200) setSelected(false)
     }
+    setIsFetching(false)
   }
 
   function renderTimeSlotButton(selected: boolean): JSX.Element {
@@ -36,6 +41,7 @@ export default function TimeSlot({ slot, availabilities }: { slot: ISlot, availa
 
   return (
     <>
+      isFetching {isFetching ? 'true' : 'false'}
       {renderTimeSlotButton(selected)}
     </>
   )
