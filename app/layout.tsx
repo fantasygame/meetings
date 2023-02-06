@@ -1,4 +1,6 @@
 import './globals.css'
+import ProvidersWrapper from '@/app/ProvidersWrapper'
+import Login from '@/app/Login'
 
 export default function RootLayout({
   children,
@@ -12,7 +14,12 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
-    </html>
+      <body>
+        <ProvidersWrapper>
+          <Login />
+          {children}
+        </ProvidersWrapper>
+      </body>
+    </html >
   )
 }
