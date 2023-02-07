@@ -9,7 +9,6 @@ export default function findSessions(hours: number) {
 function possibleFourHoursTimeSlots(hours: number) {
   const possibleHours: number[][] = []
   for (let i = 1; i <= (336 - hours + 1); i++) {
-    // possibleHours.push([i, i + 1, i + 2, i + 3])
     const timeSlots = []
     for (let j = 0; j < hours; j++) {
       timeSlots.push(i + j)
