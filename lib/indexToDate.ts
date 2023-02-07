@@ -25,6 +25,6 @@ function addHalfHourToString(hour: string) {
     const newHour = hours + 1
     return `${newHour}:00`
   } else {
-    return `${hour}:30`
+    return `${hours}:30`
   }
 }
