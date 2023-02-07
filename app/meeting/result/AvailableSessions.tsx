@@ -22,7 +22,7 @@ export default function AvailableSessions() {
   }, [])
 
   return (
-    <>
+    <div>
       Available meetings:
       {isFetching && <p>Loading...</p>}
       {
@@ -32,7 +32,7 @@ export default function AvailableSessions() {
           </div>
         ))
       }
-    </>
+    </div>
   )
 
 }
