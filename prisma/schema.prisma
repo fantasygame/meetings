@@ -10,16 +10,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id             Int            @id @default(autoincrement())
-  name           String
-  discordId      String         @unique @default("None")
-  availabilities Availability[]
-}
-
 model Availability {
-  id     Int  @id @default(autoincrement())
-  user   User @relation(fields: [userId], references: [id])
-  userId Int
-  index  Int
+  id    Int    @id @default(autoincrement())
+  index Int
+  name  String @default("none") // FIXME use discord id
 }
