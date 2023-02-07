@@ -1,9 +1,9 @@
-import findMeetings from '@/lib/findMeetings';
+import possibleMeetings from '@/lib/possibleMeetings';
 
 export default async function selectMeeting() {
-  const fiveHourMeetings = findMeetings(5)
-  const fourHourMeetings = findMeetings(4)
-  const threeHourMeetings = findMeetings(3)
+  const fiveHourMeetings = possibleMeetings(5)
+  const fourHourMeetings = possibleMeetings(4)
+  const threeHourMeetings = possibleMeetings(3)
 
   const result = await Promise.all([fiveHourMeetings, fourHourMeetings, threeHourMeetings])
   const meetings = result.flat()
