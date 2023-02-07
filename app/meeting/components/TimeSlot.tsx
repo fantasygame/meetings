@@ -2,6 +2,7 @@
 
 import { IAvailability } from '@/app/meeting/types/IAvailability'
 import { ISlot } from '@/app/meeting/types/ISlot'
+import apiUrl from '@/lib/apiUrl'
 import { useState } from 'react'
 
 export default function TimeSlot({ slot, availabilities }: { slot: ISlot, availabilities: IAvailability[] }) {
@@ -20,18 +21,18 @@ export default function TimeSlot({ slot, availabilities }: { slot: ISlot, availa
     if (preferred) {
       setSelected(false)
       setPreferred(false)
-      const res = await fetch(`http://localhost:3000/api/deleteAvailability/${slot.index}`, { method: 'DELETE' })
+      const res = await fetch(`${apiUrl()}/api/deleteAvailability/${slot.index}`, { method: 'DELETE' })
       if (res.status !== 200) {
         setSelected(true)
         setPreferred(true)
       }
     } else if (selected) {
       setPreferred(true)
-      const res = await fetch(`http://localhost:3000/api/preferAvailability/${slot.index}`, { method: 'PUT' })
+      const res = await fetch(`${apiUrl()}/api/preferAvailability/${slot.index}`, { method: 'PUT' })
       if (res.status !== 200) setPreferred(false)
     } else {
       setSelected(true)
-      const res = await fetch(`http://localhost:3000/api/createAvailability`, {
+      const res = await fetch(`${apiUrl()}/api/createAvailability`, {
         method: 'POST',
         body: JSON.stringify({ index: slot.index }),
       })

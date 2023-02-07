@@ -3,6 +3,7 @@ import { IMeeting } from '@/app/meeting/IMeeting';
 import { IAvailability } from '@/app/meeting/types/IAvailability';
 import Link from 'next/link'
 import { cookies } from "next/headers";
+import apiUrl from '@/lib/apiUrl';
 
 
 async function getAvailabilities(): Promise<IAvailability[]> {
@@ -12,7 +13,9 @@ async function getAvailabilities(): Promise<IAvailability[]> {
     requestHeaders.set('cookie', `next-auth.session-token=${sessionToken}`)
   }
 
-  const res = await fetch('http://localhost:3000/api/getAvailabilities', {
+  console.log('apiUrl()', apiUrl())
+
+  const res = await fetch(`${apiUrl()}/api/getAvailabilities`, {
     headers: requestHeaders
   });
 
