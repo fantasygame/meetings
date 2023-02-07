@@ -11,9 +11,10 @@ datasource db {
 }
 
 model Availability {
-  id    Int    @id @default(autoincrement())
-  index Int
-  name  String @default("none") // FIXME use discord id
+  id        Int     @id @default(autoincrement())
+  index     Int
+  name      String  @default("none") // FIXME use discord id
+  preferred Boolean @default(false)
 
   @@unique([index, name])
 }
