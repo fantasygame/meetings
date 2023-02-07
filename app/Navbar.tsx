@@ -1,6 +1,7 @@
 'use client'
 
 import Login from '@/app/Login';
+import Link from 'next/link';
 import { useState } from 'react';
 
 export default function Navbar() {
@@ -29,11 +30,11 @@ export default function Navbar() {
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="hidden sm:ml-0 sm:block">
               <div className="flex space-x-4">
-                <a href="#" className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Meetings</a>
+                <Link href="/" className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Meetings</Link>
 
-                <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Kiedy możesz grać?</a>
+                <Link href="meeting" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Kiedy możesz grać?</Link>
 
-                <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Możliwe terminy sesji</a>
+                <Link href="meeting/result" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Możliwe terminy sesji</Link>
               </div>
             </div>
           </div>
@@ -43,11 +44,11 @@ export default function Navbar() {
 
       {isMenuOpen && (<div className="sm:hidden" id="mobile-menu">
         <div className="space-y-1 px-2 pt-2 pb-3">
-          <a href="#" className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Meetings</a>
+          <Link href="/" className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Meetings</Link>
 
-          <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Kiedy możesz grać?</a>
+          <Link href="meeting" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Kiedy możesz grać?</Link>
 
-          <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Możliwe terminy sesji</a>
+          <Link href="meeting/result" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Możliwe terminy sesji</Link>
         </div>
       </div>)}
     </nav>
