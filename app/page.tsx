@@ -11,7 +11,7 @@ export default function Home() {
         <h1 className="text-3xl">Meetings - zagrajmy sesyjkę</h1>
         <div className='my-5'>
           <div className='my-3'>
-            Ucząc się nowych technologii stworzyliśmy z Gogi aplikację, która może pomóc nam umawiać się na sesje.
+            Ucząc się nowych technologii stworzyliśmy z Gogi aplikację, która ma na celu pomóc nam umawiać się na sesje.
           </div>
           <div className='my-3'>
             Działa podobnie jak Doodle. Jako MG, wybieram terminy w których mogę prowadzić. Wy wybieracie kiedy możecie grać. Na koniec aplikacja sugeruje nam najlepsze terminy.

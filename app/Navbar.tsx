@@ -1,12 +1,14 @@
 'use client'
 
 import Login from '@/app/Login';
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { useState } from 'react';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isProfileOpen, setIsProfileOpen] = useState(false);
+
+  const { data: session } = useSession()
 
   const handleHamburgerClick = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -32,9 +34,9 @@ export default function Navbar() {
               <div className="flex space-x-4">
                 <Link href="/" className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Meetings</Link>
 
-                <Link href="meeting" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Kiedy możesz grać?</Link>
+                {session && <Link href="meeting" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Kiedy możesz grać?</Link>}
 
-                <Link href="meeting/result" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Możliwe terminy sesji</Link>
+                {session && <Link href="meeting/result" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Możliwe terminy sesji</Link>}
               </div>
             </div>
           </div>
@@ -46,9 +48,9 @@ export default function Navbar() {
         <div className="space-y-1 px-2 pt-2 pb-3">
           <Link href="/" className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Meetings</Link>
 
-          <Link href="meeting" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Kiedy możesz grać?</Link>
+          {session && <Link href="meeting" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Kiedy możesz grać?</Link>}
 
-          <Link href="meeting/result" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Możliwe terminy sesji</Link>
+          {session && <Link href="meeting/result" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Możliwe terminy sesji</Link>}
         </div>
       </div>)}
     </nav>
