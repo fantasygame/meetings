@@ -14,6 +14,8 @@ async function getAvailabilities(): Promise<IAvailability[]> {
   }
 
   console.log('apiUrl()', apiUrl())
+  console.log('`${apiUrl()}/api/getAvailabilities`', `${apiUrl()}/api/getAvailabilities`)
+  console.log('`next-auth.session-token=${sessionToken}`', `next-auth.session-token=${sessionToken}`)
 
   const res = await fetch(`${apiUrl()}/api/getAvailabilities`, {
     headers: requestHeaders
