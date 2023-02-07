@@ -11,6 +11,9 @@ export default function Home() {
       <Link className='btn' href="/meeting">
         Meeting
       </Link>
+      <Link className='btn' href="/meeting/result">
+        Possible meeting dates
+      </Link>
     </main>
   )
 }
