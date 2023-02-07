@@ -1,9 +1,9 @@
 import { availablePlayers } from '@/lib/availablePlayers';
-import { possibleFourHoursTimeSlots } from '@/lib/possibleTimeSlots';
+import { possibleTimeSlots } from '@/lib/possibleTimeSlots';
 
 export default async function findMeeting(hours: number) {
   const promises = []
-  for (const timeSlots of possibleFourHoursTimeSlots(hours)) {
+  for (const timeSlots of possibleTimeSlots(hours)) {
     promises.push(availablePlayers(timeSlots))
   }
   const meetings = await Promise.all(promises)
