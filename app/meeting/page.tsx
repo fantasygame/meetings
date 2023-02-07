@@ -2,13 +2,20 @@ import Calendar from '@/app/meeting/components/Calendar';
 import { IMeeting } from '@/app/meeting/IMeeting';
 import { IAvailability } from '@/app/meeting/types/IAvailability';
 import Link from 'next/link'
+import { cookies } from "next/headers";
+
 
 async function getAvailabilities(): Promise<IAvailability[]> {
-  const res = await fetch('http://localhost:3000/api/getAvailabilities');
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
+  const sessionToken = cookies().get("next-auth.session-token")?.value
+  const requestHeaders: HeadersInit = new Headers();
+  if (sessionToken) {
+    requestHeaders.set('cookie', `next-auth.session-token=${sessionToken}`)
+  }
 
-  // Recommendation: handle errors
+  const res = await fetch('http://localhost:3000/api/getAvailabilities', {
+    headers: requestHeaders
+  });
+
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data');
