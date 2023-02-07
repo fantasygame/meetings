@@ -24,6 +24,7 @@ export default function AvailableSessions() {
   return (
     <>
       Available meetings:
+      {isFetching && <p>Loading...</p>}
       {
         availableMeetings.map((meeting, index) => (
           <div key={index}>
