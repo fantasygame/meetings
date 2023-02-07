@@ -9,7 +9,7 @@ export default function Home() {
     <main className={raleway.className}>
       <div className='my-4 mx-4'>
         <h1 className="text-3xl">Meetings - zagrajmy sesyjkę</h1>
-        <div className='my-2'>
+        <div className='my-5'>
           <div className='my-3'>
             Ucząc się nowych technologii stworzyliśmy z Gogi aplikację, która może pomóc nam umawiać się na sesje.
           </div>
@@ -24,12 +24,27 @@ export default function Home() {
             Zaznaczając można wybrać nie tylko kiedy możemy grać, ale też temin który preferujemy.
             W niedalekiej przyszłości apka będzie to brała pod uwagę. Będzie też promowała graczy z większą dostępnością.
           </div>
-          <div>
+          <div className='my-3'>
             Mamy również w planach dodać bota do Discorda, który będzie przypominał o zaznaczaniu dostępności i informował o terminie sesji.
           </div>
-          <Link href="/meeting">
-            <div className="btn my-10 mx-10">Kiedy możesz grać?</div>
-          </Link>
+        </div>
+        <div className='mt-6 text-xs'>
+          <div className='my-3'>
+            <div className="my-2">
+            <div>Dla nerdów</div>
+            <div>Tech stack:</div>
+            </div>
+            <ul>
+              <li><Link href="https://www.typescriptlang.org/" target="_blank">Typescript</Link></li>
+              <li><Link href="https://reactjs.org/" target="_blank">React</Link></li>
+              <li><Link href="https://nextjs.org/" target="_blank">Next.js 13 - beta app dir</Link></li>
+              <li><Link href="https://nextjs.org/docs/api-routes/introduction" target="_blank">Next.js REST API</Link></li>
+              <li><Link href="https://tailwindcss.com/" target="_blank">Tailwind CSS</Link></li>
+              <li><Link href="https://vercel.com/" target="_blank">Deployed to Vercel</Link></li>
+              <li><Link href="https://railway.app/" target="_blank">Postgres database on Railway</Link></li>
+              <li><Link href="https://github.com/fantasygame/meetings" target="_blank">Github repo</Link></li>
+            </ul>
+          </div>
         </div>
       </div>
     </main >
