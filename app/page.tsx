@@ -28,18 +28,18 @@ export default function Home() {
             Mamy również w planach dodać bota do Discorda, który będzie przypominał o zaznaczaniu dostępności i informował o terminie sesji.
           </div>
         </div>
-        <div className='mt-6 text-xs'>
+        <div className='mt-10 text-xs'>
           <div className='my-3'>
             <div className="my-2">
             <div>Dla nerdów</div>
             <div>Tech stack:</div>
             </div>
             <ul>
-              <li><Link href="https://www.typescriptlang.org/" target="_blank">Typescript</Link></li>
-              <li><Link href="https://reactjs.org/" target="_blank">React</Link></li>
-              <li><Link href="https://nextjs.org/" target="_blank">Next.js 13 - beta app dir</Link></li>
-              <li><Link href="https://nextjs.org/docs/api-routes/introduction" target="_blank">Next.js REST API</Link></li>
-              <li><Link href="https://tailwindcss.com/" target="_blank">Tailwind CSS</Link></li>
+              <li><Link href="https://www.typescriptlang.org/" target="_blank">Typescript ❤️❤️❤️</Link></li>
+              <li><Link href="https://reactjs.org/" target="_blank">React ❤️❤️</Link></li>
+              <li><Link href="https://tailwindcss.com/" target="_blank">Tailwind CSS ❤️❤️</Link></li>
+              <li><Link href="https://nextjs.org/" target="_blank">Next.js 13 - beta app dir ❤️</Link></li>
+              <li><Link href="https://nextjs.org/docs/api-routes/introduction" target="_blank">Next.js REST API 😐</Link></li>
               <li><Link href="https://vercel.com/" target="_blank">Deployed to Vercel</Link></li>
               <li><Link href="https://railway.app/" target="_blank">Postgres database on Railway</Link></li>
               <li><Link href="https://github.com/fantasygame/meetings" target="_blank">Github repo</Link></li>
