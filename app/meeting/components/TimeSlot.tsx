@@ -21,7 +21,10 @@ export default function TimeSlot({ slot, availabilities }: { slot: ISlot, availa
       setSelected(false)
       setPreferred(false)
       const res = await fetch(`http://localhost:3000/api/deleteAvailability/${slot.index}`, { method: 'DELETE' })
-      if (res.status !== 200) setSelected(true)
+      if (res.status !== 200) {
+        setSelected(true)
+        setPreferred(true)
+      }
     } else if (selected) {
       setPreferred(true)
       const res = await fetch(`http://localhost:3000/api/preferAvailability/${slot.index}`, { method: 'PUT' })
