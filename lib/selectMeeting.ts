@@ -10,7 +10,7 @@ export default async function selectMeeting() {
   // order meetings by number of players and number of time slots (higher number of players first, then higher number of time slots) descenring
   const orderedMeetings = meetings.sort((a, b) => {
     if (b.players.length === a.players.length) {
-      return b.timeSlot.length - a.timeSlot.length
+      return b.timeSlots.length - a.timeSlots.length
     }
     return b.players.length - a.players.length
   })

@@ -9,5 +9,6 @@ export async function availablePlayers(timeSlots: number[]) {
   })
   const sql = sqlParts.join(' INTERSECT ')
   const result: { name: string }[] = await prisma.$queryRawUnsafe(sql)
-  return result.map((row) => row.name)
+  const players = result.map((row) => row.name)
+  return { timeSlots, players }
 }

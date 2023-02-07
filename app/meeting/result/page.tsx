@@ -8,7 +8,7 @@ export default async function ResultPage() {
       Available sessions:
       {availableMeetings.map((meeting, index) => (
         <div key={index}>
-          {meeting.timeSlot.join(', ')}: {meeting.players.join(', ')}
+          {meeting.timeSlots.join(', ')}: {meeting.players.join(', ')}
         </div>
       ))}
     </div>

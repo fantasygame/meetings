@@ -2,11 +2,11 @@ import { availablePlayers } from '@/lib/availablePlayers';
 import { possibleFourHoursTimeSlots } from '@/lib/possibleTimeSlots';
 
 export default async function findMeeting(hours: number) {
-  const meetings: { timeSlot: number[], players: string[] }[] = [];
+  const promises = []
   for (const timeSlots of possibleFourHoursTimeSlots(hours)) {
-    const players = await availablePlayers(timeSlots)
-    if (players.length === 0) continue
-    meetings.push({ timeSlot: timeSlots, players })
+    promises.push(availablePlayers(timeSlots))
   }
-  return meetings.sort((a, b) => b.players.length - a.players.length)
+  const meetings = await Promise.all(promises)
+  const meetingsWithPlayers = meetings.filter((meeting) => meeting.players.length > 0)
+  return meetingsWithPlayers.sort((a, b) => b.players.length - a.players.length)
 }
