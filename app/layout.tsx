@@ -1,6 +1,7 @@
 import './globals.css'
 import ProvidersWrapper from '@/app/ProvidersWrapper'
 import Login from '@/app/Login'
+import Navbar from '@/app/Navbar'
 
 export default function RootLayout({
   children,
@@ -16,6 +17,7 @@ export default function RootLayout({
       <head />
       <body>
         <ProvidersWrapper>
+          <Navbar />
           <Login />
           {children}
         </ProvidersWrapper>
