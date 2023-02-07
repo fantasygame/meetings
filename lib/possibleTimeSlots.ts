@@ -1,5 +1,6 @@
 export function possibleTimeSlots(hours: number) {
   const MAX_INDEX = 336
+  // const MAX_INDEX = 10
   const possibleHours: number[][] = []
   for (let i = 1; i <= (MAX_INDEX - hours + 1); i++) {
     const timeSlots = []
