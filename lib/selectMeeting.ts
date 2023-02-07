@@ -1,9 +1,9 @@
 import possibleMeetings from '@/lib/possibleMeetings';
 
 export default async function selectMeeting() {
-  const fiveHourMeetings = possibleMeetings(5)
-  const fourHourMeetings = possibleMeetings(4)
-  const threeHourMeetings = possibleMeetings(3)
+  const fiveHourMeetings = possibleMeetings(10)
+  const fourHourMeetings = possibleMeetings(8)
+  const threeHourMeetings = possibleMeetings(6)
 
   const result = await Promise.all([fiveHourMeetings, fourHourMeetings, threeHourMeetings])
   const meetings = result.flat()
