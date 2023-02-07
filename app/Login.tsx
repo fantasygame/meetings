@@ -1,6 +1,5 @@
 'use client'
 
-import { UserCard } from '@/app/UserCard'
 import { useSession, signIn, signOut } from 'next-auth/react'
 import { useState } from 'react';
 
