@@ -20,10 +20,10 @@ export default async function handler(
 
 
   try {
-    const id = req.query.id
-    if (!id) throw new Error('No id provided')
+    const index = req.query.index
+    if (!index) throw new Error('No index provided')
 
-    const availability = await prisma.availability.findFirst({ where: { id: +id, name } })
+    const availability = await prisma.availability.findFirst({ where: { index: +index, name } })
 
     if (!availability) {
       res.status(404).json({ error: 'Not found' })
@@ -32,10 +32,10 @@ export default async function handler(
 
     await prisma.availability.delete({
       where: {
-        id: +id,
+        id: +availability.id
       }
     })
-    res.status(200).json({ id })
+    res.status(200).json({ index })
   } catch (error) {
     res.status(500).json({ error })
   }
