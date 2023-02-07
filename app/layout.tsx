@@ -18,7 +18,6 @@ export default function RootLayout({
       <body>
         <ProvidersWrapper>
           <Navbar />
-          <Login />
           {children}
         </ProvidersWrapper>
       </body>
