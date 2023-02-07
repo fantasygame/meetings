@@ -10,12 +10,14 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const session = await getServerSession(req, res, authOptions)
-  if (!isUserAllowed(session)) {
+  const name = session?.user?.name
+
+  if (!isUserAllowed(session) || !name) {
     res.status(401).json({ error: 'Not authenticated' })
     return
   }
   try {
-    const data = await prisma.availability.findMany()
+    const data = await prisma.availability.findMany({ where: { name } })
     res.status(200).json(data)
   } catch (error) {
     res.status(500).json({ error })
