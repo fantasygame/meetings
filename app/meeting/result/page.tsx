@@ -9,9 +9,6 @@ import { useState, useEffect } from 'react'
 export default async function ResultPage() {
   return (
     <div>
-      <Link className='btn ml-5' href="/">
-        Return
-      </Link>
       <AvailableSessions />
     </div>
   )

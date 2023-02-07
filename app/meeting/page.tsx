@@ -5,17 +5,13 @@ import Link from 'next/link'
 export default async function MeetingPage() {
   const meeting: IMeeting = {
     id: 1,
-    name: 'Burning Crowns S01E03',
+    name: 'Burning Crowns',
   }
 
   return (
     <>
-      <div className='text-xl mx-5 mt-5 text-blue-700 font-semibold' >{meeting.name}</div>
-      <div className='text-bg mx-5 mt-1 mb-5 text-blue-700'>Choose your availability for the meeting</div>
-      <Link className='btn ml-5' href="/">
-        Return
-      </Link>
-      <Calendar meeting={meeting} />
+      <div className='text-xl mx-5 mt-5 text-gray-700 font-semibold'>{meeting.name}</div>
+      <div className='mx-2'><Calendar meeting={meeting} /></div>
     </>
   )
 }
