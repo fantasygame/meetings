@@ -1,37 +1,8 @@
 import Calendar from '@/app/meeting/components/Calendar';
 import { IMeeting } from '@/app/meeting/IMeeting';
-import { IAvailability } from '@/app/meeting/types/IAvailability';
 import Link from 'next/link'
-import { cookies } from "next/headers";
-import apiUrl from '@/lib/apiUrl';
-
-
-async function getAvailabilities(): Promise<IAvailability[]> {
-  const sessionToken = cookies().get("next-auth.session-token")?.value
-  const requestHeaders: HeadersInit = new Headers();
-  if (sessionToken) {
-    requestHeaders.set('cookie', `next-auth.session-token=${sessionToken}`)
-  }
-
-  console.log('apiUrl()', apiUrl())
-  console.log('`${apiUrl()}/api/getAvailabilities`', `${apiUrl()}/api/getAvailabilities`)
-  console.log('`next-auth.session-token=${sessionToken}`', `next-auth.session-token=${sessionToken}`)
-
-  const res = await fetch(`${apiUrl()}/api/getAvailabilities`, {
-    headers: requestHeaders
-  });
-
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data');
-  }
-
-  return res.json();
-}
 
 export default async function MeetingPage() {
-
-  const availabilities = await getAvailabilities();
   const meeting: IMeeting = {
     id: 1,
     name: 'Burning Crowns S01E03',
@@ -44,7 +15,7 @@ export default async function MeetingPage() {
       <Link className='btn ml-5' href="/">
         Return
       </Link>
-      <Calendar meeting={meeting} availabilities={availabilities} />
+      <Calendar meeting={meeting} />
     </>
   )
 }

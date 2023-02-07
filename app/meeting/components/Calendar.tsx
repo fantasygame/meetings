@@ -1,10 +1,29 @@
+'use client'
+
 import Day from '@/app/meeting/components/Day';
 import { IMeeting } from '@/app/meeting/IMeeting';
 import { IAvailability } from '@/app/meeting/types/IAvailability';
+import apiUrl from '@/lib/apiUrl';
 import calendarDays from '@/lib/calendarDays';
+import { useEffect, useState } from 'react';
 
-export default function Calendar({ meeting, availabilities }: { meeting: IMeeting, availabilities: IAvailability[] }) {
+export default function Calendar({ meeting }: { meeting: IMeeting }) {
   const days = calendarDays()
+  const [availabilities, setAvailabilities] = useState<IAvailability[]>([])
+  const [isFetching, setIsFetching] = useState(false)
+
+  useEffect(() => {
+    setIsFetching(true)
+    fetch(`${apiUrl()}/api/getAvailabilities`)
+      .then((res) => res.json())
+      .then((data) => {
+        setAvailabilities(data)
+        setIsFetching(false)
+      })
+  }, [])
+
+  if (isFetching) return <p>Loading...</p>
+
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-y-6 gap-x-3">
