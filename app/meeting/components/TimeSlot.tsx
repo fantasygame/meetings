@@ -24,7 +24,7 @@ export default function TimeSlot({ slot, availabilities }: { slot: ISlot, availa
       setSelected(true)
       const res = await fetch(`http://localhost:3000/api/createAvailability`, {
         method: 'POST',
-        body: JSON.stringify({ userId: 1, index: slot.index }),
+        body: JSON.stringify({ index: slot.index }),
       })
       if (res.status !== 200) setSelected(false)
     }
