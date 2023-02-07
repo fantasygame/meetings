@@ -23,7 +23,7 @@ export default function AvailableSessions() {
 
   return (
     <div>
-      Available meetings:
+      Possible meeting dates:
       {isFetching && <p>Loading...</p>}
       {
         availableMeetings.map((meeting, index) => (
