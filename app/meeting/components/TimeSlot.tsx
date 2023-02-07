@@ -51,12 +51,12 @@ export default function TimeSlot({ slot, availabilities }: { slot: ISlot, availa
     buttonText = '🎲'
   } else {
     classNames = 'mb-1 text-center w-1/3 sm:w-11/12 md:11/12 lg:11/12 px-4 py-2 bg-transparent text-gray-700 rounded hover:bg-gray-700 hover:text-white hover:font-semibold border border-gray-700 hover:border-transparent cursor-pointer'
-    buttonText = '😞'
+    buttonText = ''
   }
 
   if (isFetching) {
     classNames += ' opacity-50'
   }
 
-  return <div onClick={handleClick} className={classNames}>{buttonText} &nbsp; {slot.name} &nbsp; {buttonText}</div>
+  return <div onClick={handleClick} className={classNames}>{buttonText} {slot.name} {buttonText}</div>
 }
