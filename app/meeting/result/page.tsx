@@ -1,3 +1,4 @@
+import indexToHour from '@/lib/indexToHour'
 import selectMeeting from '@/lib/selectMeeting'
 
 export default async function ResultPage() {
@@ -8,7 +9,7 @@ export default async function ResultPage() {
       Available sessions:
       {availableMeetings.map((meeting, index) => (
         <div key={index}>
-          {meeting.timeSlots.join(', ')}: {meeting.players.join(', ')}
+          {indexToHour(meeting.timeSlots[0])}-{indexToHour(meeting.timeSlots[meeting.timeSlots.length - 1])}: {meeting.players.join(', ')}
         </div>
       ))}
     </div>
