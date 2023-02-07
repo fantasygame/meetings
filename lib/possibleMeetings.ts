@@ -16,6 +16,6 @@ export default async function possibleMeetings(hours: number) {
     meetings = [...meetings, ...await Promise.all(itemsForBatch.map(item => availablePlayers(item)))];
     position += batchSize;
   }
-  const meetingsWithPlayers = meetings.filter((meeting) => meeting.players.length >= 3)
+  const meetingsWithPlayers = meetings.filter((meeting) => meeting.players.length >= 2)
   return meetingsWithPlayers.sort((a, b) => b.players.length - a.players.length)
 }
