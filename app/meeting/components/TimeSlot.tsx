@@ -61,7 +61,7 @@ export default function TimeSlot({ slot, availabilities, gmAvailabilities }: { s
     classNames = 'mb-1 text-center px-4 py-2 bg-green-700 rounded text-white font-semibold border border-green-700 cursor-pointer'
     buttonText = '🎲'
   } else {
-    classNames = 'mb-1 text-center px-4 py-2 bg-transparent text-gray-700 rounded hover:bg-gray-700 hover:text-white hover:font-semibold border border-gray-700 hover:border-transparent cursor-pointer'
+    classNames = 'mb-1 text-center px-4 py-2 bg-transparent text-gray-700 rounded hover:font-semibold border border-gray-700 cursor-pointer'
     buttonText = ''
   }
 
