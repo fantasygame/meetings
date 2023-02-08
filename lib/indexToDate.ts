@@ -1,30 +1,17 @@
 import calendarDays from '@/lib/calendarDays'
 
-export default function indexToDate(index: number, addHalfHour: boolean) {
+export default function indexToDate(index: number, last: boolean) {
   const days = calendarDays()
   for (const day of days) {
     for (const slot of day.slots) {
       if (slot.index === index) {
-        if (addHalfHour) {
-          return `${addHalfHourToString(slot.name)}`
+        if (last) {
+          return `${slot.name.split('-')[1]}`
         } else {
-          return `${day.name} ${slot.name}`
+          return `${day.name} ${slot.name.split('-')[0]}`
         }
       }
     }
   }
   return null
-}
-
-function addHalfHourToString(hour: string) {
-  const [h, m] = hour.split(':')
-  const minutes = parseInt(m)
-  const hours = parseInt(h)
-
-  if (minutes === 30) {
-    const newHour = hours + 1
-    return `${newHour}:00`
-  } else {
-    return `${hours}:30`
-  }
 }
