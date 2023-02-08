@@ -11,7 +11,7 @@ export default async function MeetingPage() {
   return (
     <>
       <div className='text-xl mx-5 mt-5 text-gray-700 font-semibold'>{meeting.name}</div>
-      <div className='mx-2'><Calendar meeting={meeting} /></div>
+      <div className='mx-2'><Calendar /></div>
     </>
   )
 }

@@ -7,7 +7,7 @@ import apiUrl from '@/lib/apiUrl';
 import calendarDays from '@/lib/calendarDays';
 import { useEffect, useState } from 'react';
 
-export default function Calendar({ meeting }: { meeting: IMeeting }) {
+export default function Calendar() {
   const days = calendarDays()
   const [availabilities, setAvailabilities] = useState<IAvailability[]>([])
   const [gmAvailabilities, setGmAvailabilities] = useState<IAvailability[]>([])
