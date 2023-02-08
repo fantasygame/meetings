@@ -3,6 +3,7 @@
 import Day from '@/app/meeting/components/Day';
 import { IMeeting } from '@/app/meeting/IMeeting';
 import { IAvailability } from '@/app/meeting/types/IAvailability';
+import Spinner from '@/app/Spinner';
 import apiUrl from '@/lib/apiUrl';
 import calendarDays from '@/lib/calendarDays';
 import { useEffect, useState } from 'react';
@@ -31,7 +32,7 @@ export default function Calendar() {
       })
   }, [])
 
-  if (isFetching || isGmFetching) return <p>Loading...</p>
+  if (isFetching || isGmFetching) return <Spinner />
 
 
   return (

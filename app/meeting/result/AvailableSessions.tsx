@@ -1,5 +1,6 @@
 'use client'
 
+import Spinner from '@/app/Spinner';
 import apiUrl from '@/lib/apiUrl';
 import indexToDate from '@/lib/indexToDate';
 import { useState, useEffect } from 'react';
@@ -22,9 +23,9 @@ export default function AvailableSessions() {
   }, [])
 
   return (
-    <div>
-      Possible meeting dates:
-      {isFetching && <p>Loading...</p>}
+    <div className="my-5 mx-5">
+      {isFetching && <div><div>Obliczanie potencjalnych sesji:</div><Spinner /></div>}
+      {!isFetching && availableMeetings.length === 0 && <div>Brak dostępnych sesji</div>}
       {
         availableMeetings.map((meeting, index) => (
           <div key={index}>
