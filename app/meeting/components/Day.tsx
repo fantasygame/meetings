@@ -6,7 +6,7 @@ import { ISlot } from '@/app/meeting/types/ISlot'
 export default function Day({ day, availabilities, gmAvailabilities }: { day: IDay, availabilities: IAvailability[], gmAvailabilities: IAvailability[] }) {
   return (
     <div>
-      <div className='text-xl m-5 text-gray-700 font-semibold'>
+      <div className='m-5 text-gray-700 font-semibold'>
         {day.name}
       </div>
       <div>
