@@ -52,16 +52,16 @@ export default function TimeSlot({ slot, availabilities, gmAvailabilities }: { s
   let classNames
   let buttonText
   if (locked) {
-    classNames = 'mb-1 text-center w-1/3 sm:w-11/12 md:11/12 lg:11/12 px-4 py-2 bg-red-500 opacity-30 rounded text-white font-semibold border border-yellow-500 cursor-not-allowed'
+    classNames = 'mb-1 text-center px-4 py-2 bg-red-500 opacity-30 rounded text-white font-semibold border border-yellow-500 cursor-not-allowed'
     buttonText = ''
   } else if (preferred) {
-    classNames = 'mb-1 text-center w-1/3 sm:w-11/12 md:11/12 lg:11/12 px-4 py-2 bg-yellow-500 rounded text-white font-semibold border border-yellow-500 cursor-pointer'
+    classNames = 'mb-1 text-center px-4 py-2 bg-yellow-500 rounded text-white font-semibold border border-yellow-500 cursor-pointer'
     buttonText = '⭐️'
   } else if (selected) {
-    classNames = 'mb-1 text-center w-1/3 sm:w-11/12 md:11/12 lg:11/12 px-4 py-2 bg-green-700 rounded text-white font-semibold border border-green-700 cursor-pointer'
+    classNames = 'mb-1 text-center px-4 py-2 bg-green-700 rounded text-white font-semibold border border-green-700 cursor-pointer'
     buttonText = '🎲'
   } else {
-    classNames = 'mb-1 text-center w-1/3 sm:w-11/12 md:11/12 lg:11/12 px-4 py-2 bg-transparent text-gray-700 rounded hover:bg-gray-700 hover:text-white hover:font-semibold border border-gray-700 hover:border-transparent cursor-pointer'
+    classNames = 'mb-1 text-center px-4 py-2 bg-transparent text-gray-700 rounded hover:bg-gray-700 hover:text-white hover:font-semibold border border-gray-700 hover:border-transparent cursor-pointer'
     buttonText = ''
   }
 
