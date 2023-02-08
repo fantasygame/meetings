@@ -29,7 +29,7 @@ export default function AvailableSessions() {
       {
         availableMeetings.map((meeting, index) => (
           <div key={index}>
-            {indexToDate(meeting.timeSlots[0], false)}-{indexToDate(meeting.timeSlots[meeting.timeSlots.length - 1], true)}: {meeting.players.join(', ')}
+            {indexToDate(meeting.timeSlots[0], false)}-{indexToDate(meeting.timeSlots[meeting.timeSlots.length - 1], true)} ({meeting.timeSlots.length / 2}h): {meeting.players.join(', ')}
           </div>
         ))
       }

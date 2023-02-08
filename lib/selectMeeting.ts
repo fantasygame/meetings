@@ -1,11 +1,7 @@
 import possibleMeetings from '@/lib/possibleMeetings';
 
 export default async function selectMeeting() {
-  const fiveHourMeetings = possibleMeetings(10)
-  const fourHourMeetings = possibleMeetings(8)
-  const threeHourMeetings = possibleMeetings(6)
-
-  const result = await Promise.all([fiveHourMeetings, fourHourMeetings, threeHourMeetings])
+  const result = await Promise.all([possibleMeetings(10), possibleMeetings(9), possibleMeetings(8), possibleMeetings(7), possibleMeetings(6)])
   const meetings = result.flat()
   // order meetings by number of players and number of time slots (higher number of players first, then higher number of time slots) descenring
   const orderedMeetings = meetings.sort((a, b) => {
