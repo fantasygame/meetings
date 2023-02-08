@@ -16,7 +16,7 @@ export default async function handler(
     return
   }
   try {
-    const data = await prisma.availability.findMany({ where: { name: process.env.GM_NAME } })
+    const data = await prisma.availability.findMany({ where: { name: process.env.NEXT_PUBLIC_GM_NAME } })
     res.status(200).json(data)
   } catch (error) {
     res.status(500).json({ error })

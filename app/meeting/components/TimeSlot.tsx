@@ -3,6 +3,8 @@
 import { IAvailability } from '@/app/meeting/types/IAvailability'
 import { ISlot } from '@/app/meeting/types/ISlot'
 import apiUrl from '@/lib/apiUrl'
+import isGm from '@/lib/isGm'
+import { useSession } from 'next-auth/react'
 import { useState } from 'react'
 
 export default function TimeSlot({ slot, availabilities, gmAvailabilities }: { slot: ISlot, availabilities: IAvailability[], gmAvailabilities: IAvailability[] }) {
@@ -12,15 +14,16 @@ export default function TimeSlot({ slot, availabilities, gmAvailabilities }: { s
   const gmAvailability = gmAvailabilities.find((availability) => {
     return availability.index === slot.index
   })
+  const { data: session } = useSession()
 
   const [selected, setSelected] = useState(!!availability)
   const [preferred, setPreferred] = useState(!!availability?.preferred)
-  const [gmAvailable] = useState(!!gmAvailability)
   const [isFetching, setIsFetching] = useState(false)
+  const [locked] = useState(!!!gmAvailability && !isGm(session))
 
   async function handleClick() {
     if (isFetching) return
-    if (!gmAvailable) return
+    if (locked) return
 
     setIsFetching(true)
     if (preferred) {
@@ -48,7 +51,7 @@ export default function TimeSlot({ slot, availabilities, gmAvailabilities }: { s
 
   let classNames
   let buttonText
-  if (!gmAvailable) {
+  if (locked) {
     classNames = 'mb-1 text-center w-1/3 sm:w-11/12 md:11/12 lg:11/12 px-4 py-2 bg-red-500 opacity-30 rounded text-white font-semibold border border-yellow-500 cursor-not-allowed'
     buttonText = ''
   } else if (preferred) {
@@ -66,5 +69,5 @@ export default function TimeSlot({ slot, availabilities, gmAvailabilities }: { s
     classNames += ' opacity-50'
   }
 
-  return <div onClick={handleClick} className={classNames}>{buttonText} {slot.name} {buttonText}</div>
+  return <div onClick={handleClick} className={classNames}>{slot.name} {buttonText}</div>
 }
