@@ -10,7 +10,8 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const session = await getServerSession(req, res, authOptions)
-  const name = session?.user?.name
+  const checkOtherUserName = null
+  const name = checkOtherUserName || session?.user?.name
 
   if (!isUserAllowed(session) || !name) {
     res.status(401).json({ error: 'Not authenticated' })
