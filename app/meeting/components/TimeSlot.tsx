@@ -5,17 +5,22 @@ import { ISlot } from '@/app/meeting/types/ISlot'
 import apiUrl from '@/lib/apiUrl'
 import { useState } from 'react'
 
-export default function TimeSlot({ slot, availabilities }: { slot: ISlot, availabilities: IAvailability[] }) {
+export default function TimeSlot({ slot, availabilities, gmAvailabilities }: { slot: ISlot, availabilities: IAvailability[], gmAvailabilities: IAvailability[] }) {
   const availability = availabilities.find((availability) => {
+    return availability.index === slot.index
+  })
+  const gmAvailability = gmAvailabilities.find((availability) => {
     return availability.index === slot.index
   })
 
   const [selected, setSelected] = useState(!!availability)
   const [preferred, setPreferred] = useState(!!availability?.preferred)
+  const [gmAvailable] = useState(!!gmAvailability)
   const [isFetching, setIsFetching] = useState(false)
 
   async function handleClick() {
     if (isFetching) return
+    if (!gmAvailable) return
 
     setIsFetching(true)
     if (preferred) {
@@ -43,7 +48,10 @@ export default function TimeSlot({ slot, availabilities }: { slot: ISlot, availa
 
   let classNames
   let buttonText
-  if (preferred) {
+  if (!gmAvailable) {
+    classNames = 'mb-1 text-center w-1/3 sm:w-11/12 md:11/12 lg:11/12 px-4 py-2 bg-red-500 opacity-30 rounded text-white font-semibold border border-yellow-500 cursor-not-allowed'
+    buttonText = ''
+  } else if (preferred) {
     classNames = 'mb-1 text-center w-1/3 sm:w-11/12 md:11/12 lg:11/12 px-4 py-2 bg-yellow-500 rounded text-white font-semibold border border-yellow-500 cursor-pointer'
     buttonText = '⭐️'
   } else if (selected) {

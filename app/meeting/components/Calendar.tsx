@@ -10,7 +10,9 @@ import { useEffect, useState } from 'react';
 export default function Calendar({ meeting }: { meeting: IMeeting }) {
   const days = calendarDays()
   const [availabilities, setAvailabilities] = useState<IAvailability[]>([])
+  const [gmAvailabilities, setGmAvailabilities] = useState<IAvailability[]>([])
   const [isFetching, setIsFetching] = useState(false)
+  const [isGmFetching, setIsGmFetching] = useState(false)
 
   useEffect(() => {
     setIsFetching(true)
@@ -20,15 +22,22 @@ export default function Calendar({ meeting }: { meeting: IMeeting }) {
         setAvailabilities(data)
         setIsFetching(false)
       })
+    setIsGmFetching(true)
+    fetch(`${apiUrl()}/api/getGmAvailabilities`)
+      .then((res) => res.json())
+      .then((data) => {
+        setGmAvailabilities(data)
+        setIsGmFetching(false)
+      })
   }, [])
 
-  if (isFetching) return <p>Loading...</p>
+  if (isFetching || isGmFetching) return <p>Loading...</p>
 
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-y-6 gap-x-3">
       {days.map((day, index) => {
-        return <Day day={day} key={index} availabilities={availabilities} />
+        return <Day day={day} key={index} availabilities={availabilities} gmAvailabilities={gmAvailabilities} />
       })}
     </div>
   )
