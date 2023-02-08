@@ -31,8 +31,8 @@ export default function Home() {
         <div className='mt-10 text-xs'>
           <div className='my-3'>
             <div className="my-2">
-            <div>Dla nerdów</div>
-            <div>Tech stack:</div>
+              <div>Dla nerdów</div>
+              <div>Apka napisana na szybko w:</div>
             </div>
             <ul>
               <li><Link href="https://www.typescriptlang.org/" target="_blank">Typescript ❤️❤️❤️</Link></li>
